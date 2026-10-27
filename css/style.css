@@ -107,10 +107,8 @@ em { font-style: italic; color: var(--accent-text); }
 .hero__sub { max-width: 32em; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: var(--ink-2); }
 .hero__sub strong { color: var(--ink); font-weight: 600; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(24px, 3vw, 36px); }
-.hero__fig { position: relative; display: block; aspect-ratio: 5 / 4.2; overflow: hidden; border-radius: var(--radius-lg); background: var(--plate); box-shadow: var(--shadow); border: 1px solid var(--line-soft); isolation: isolate; }
-.hero__fig img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
-.hero__fig:hover img { transform: scale(1.03); }
-.hero__cap { position: absolute; left: 14px; bottom: 14px; padding: 8px 14px; border-radius: 999px; font: 500 12px/1 var(--font-mono); letter-spacing: .04em; color: #fff; background: rgba(12, 12, 14, .62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.hero__fig { position: relative; width: 100%; max-width: 480px; justify-self: end; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-lg); background: var(--plate); box-shadow: var(--shadow); border: 1px solid var(--line-soft); isolation: isolate; }
+.hero__fig img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 6%; }
 
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(44px, 6vw, 84px); border-top: 1px solid var(--line); }
 .stat { display: flex; flex-direction: column-reverse; gap: 8px; padding: 26px 20px 4px 0; }
@@ -149,8 +147,9 @@ em { font-style: italic; color: var(--accent-text); }
 .project:nth-child(even) .project__media { order: 2; }
 .project__media { position: sticky; top: calc(var(--nav-h) + 24px); min-width: 0; }
 .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 18px; }
-.logo-chip { display: inline-grid; place-items: center; height: 36px; min-width: 36px; padding: 5px 9px; border-radius: 10px; background: #fff; border: 1px solid var(--line-soft); }
-.logo-chip img { height: 24px; width: auto; max-width: 110px; object-fit: contain; }
+.logo-chip { display: inline-grid; place-items: center; min-height: 36px; min-width: 36px; padding: 5px 9px; border-radius: 10px; background: #fff; border: 1px solid var(--line-soft); }
+.logo-chip img { height: 24px; width: auto; max-width: 140px; object-fit: contain; }
+.logo-chip--stack img { height: 32px; }   /* logos with a mark above the name need more height to stay legible */
 .org { font-weight: 600; font-size: 15px; color: var(--ink); }
 .dates { font: 400 12px/1 var(--font-mono); letter-spacing: .05em; color: var(--ink-3); padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); }
 .project__title { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--track); font-size: clamp(36px, 4.2vw, 58px); line-height: 1.04; color: var(--ink); margin-bottom: 26px; text-wrap: balance; }
@@ -197,8 +196,7 @@ em { font-style: italic; color: var(--accent-text); }
 /* ---------- About ---------- */
 .about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5.5vw, 88px); align-items: start; }
 .about__photos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; position: sticky; top: calc(var(--nav-h) + 24px); }
-.about__photo { aspect-ratio: 3 / 4; grid-column: span 2; border-radius: var(--radius); margin: 0; }
-.about__photo:nth-child(-n + 2) { grid-column: span 3; border-radius: var(--radius-lg); }
+.about__photo { aspect-ratio: 3 / 4; grid-column: span 3; border-radius: var(--radius-lg); margin: 0; }
 .about__photo img { object-fit: cover; object-position: var(--pos, 50% 25%); }
 .about__text p { font-size: 17px; line-height: 1.75; color: var(--ink-2); }
 .about__text p + p { margin-top: 18px; }
@@ -247,7 +245,7 @@ em { font-style: italic; color: var(--accent-text); }
   .hero__grid, .project, .about, .contact__grid { grid-template-columns: minmax(0, 1fr); }
   .project:nth-child(even) .project__media { order: 0; }
   .project__media, .about__photos { position: static; }
-  .hero__fig { aspect-ratio: 4 / 3; }
+  .hero__fig { justify-self: start; max-width: 440px; }
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
